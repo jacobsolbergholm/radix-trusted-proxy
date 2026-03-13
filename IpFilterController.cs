@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("/")]
 public class IpFilterController : ControllerBase
 {
     [HttpGet("unfiltered")]

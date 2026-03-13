@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/equinor/radix-operator/release/json-schema/radixapplication.json
+
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: radix-trusted-proxy
+
+spec:
+  build:
+    useBuildKit: true
+
+  environments:
+    - name: dev
+      build:
+        from: main
+
+  components:
+    - name: ipfilter
+      ports:
+        - name: http
+          port: 8080
+      publicPort: http
+
+      variables:
+        IP_ALLOW_LIST: "127.0.0.1"
